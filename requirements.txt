@@ -1,0 +1,26 @@
+# Core dependencies
+numpy>=1.24.0
+Pillow>=10.0.0
+
+# Vision
+ultralytics>=8.0.0  # YOLOv8
+
+# OCR
+paddlepaddle>=2.5.0  # PaddleOCR backend
+paddleocr>=2.7.0     # PaddleOCR
+pytesseract>=0.3.10  # Tesseract OCR (fallback)
+
+# RAG / Vector Database
+chromadb>=0.4.0
+sentence-transformers>=2.2.0
+
+# LLM
+openai>=1.0.0
+
+# Utilities
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# Optional: GPU support
+# torch>=2.0.0  # Uncomment for GPU support
+# paddlepaddle-gpu>=2.5.0  # Uncomment for GPU support

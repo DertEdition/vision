@@ -1,0 +1,4 @@
+# Data directory placeholder
+# This directory will contain:
+# - drug_knowledge_base/: ChromaDB knowledge base
+# - sample_images/: Sample drug images for testing

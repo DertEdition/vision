@@ -1,0 +1,1029 @@
+[
+    {
+        "drug_name": "Parol",
+        "active_ingredients": [
+            "Parasetamol"
+        ],
+        "manufacturer": "Atabay",
+        "dosage_form": "tablet",
+        "strengths": [
+            "500 mg",
+            "1000 mg"
+        ],
+        "indications": "Ağrı kesici ve ateş düşürücü. Hafif ve orta şiddetteki ağrıların (baş ağrısı, diş ağrısı, kas ağrısı, adet ağrısı) ve ateşli durumların tedavisinde kullanılır.",
+        "usage": "Yetişkinler: 500-1000 mg, günde 3-4 kez. Dozlar arası en az 4 saat. Maksimum günlük doz 4000 mg.",
+        "warnings": [
+            "Karaciğer hastalığında dikkat",
+            "Günlük 4g'ı geçmeyin",
+            "Alkol ile kullanmayın"
+        ],
+        "side_effects": [
+            "Mide bulantısı",
+            "Alerjik reaksiyonlar",
+            "Karaciğer enzim yükselmesi"
+        ],
+        "interactions": [
+            "Warfarin",
+            "Alkol",
+            "Karbamazepin"
+        ],
+        "storage": "25°C altında, kuru yerde saklayın",
+        "description": "Parasetamol içeren ağrı kesici ve ateş düşürücü. Reçetesiz satılır.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Nurofen",
+        "active_ingredients": [
+            "İbuprofen"
+        ],
+        "manufacturer": "Reckitt Benckiser",
+        "dosage_form": "tablet",
+        "strengths": [
+            "200 mg",
+            "400 mg"
+        ],
+        "indications": "Ağrı kesici, ateş düşürücü ve antienflamatuar. Baş ağrısı, diş ağrısı, adet ağrısı, kas ağrısı, eklem ağrısı tedavisinde kullanılır.",
+        "usage": "Yetişkinler: 200-400 mg, günde 3 kez. Yemekle birlikte alın. Maksimum günlük doz 1200 mg.",
+        "warnings": [
+            "Mide ülseri olanlarda kullanmayın",
+            "Böbrek hastalığında dikkat",
+            "Hamileliğin son 3 ayında kullanmayın"
+        ],
+        "side_effects": [
+            "Mide ağrısı",
+            "Bulantı",
+            "Baş dönmesi",
+            "Mide kanaması"
+        ],
+        "interactions": [
+            "Aspirin",
+            "Warfarin",
+            "Lityum",
+            "ACE inhibitörleri"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "İbuprofen içeren NSAİİ grubu ağrı kesici. Antienflamatuar etkiye sahiptir.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Apranax",
+        "active_ingredients": [
+            "Naproksen Sodyum"
+        ],
+        "manufacturer": "Abdi İbrahim",
+        "dosage_form": "tablet",
+        "strengths": [
+            "275 mg",
+            "550 mg"
+        ],
+        "indications": "Romatizmal hastalıklar, kas-iskelet sistemi ağrıları, diş ağrısı, adet ağrısı, migren tedavisinde kullanılır.",
+        "usage": "Başlangıç dozu 550 mg, ardından 275 mg 6-8 saatte bir. Yemekle alın.",
+        "warnings": [
+            "Mide ülseri ve kanama riski",
+            "Böbrek yetmezliğinde dikkat",
+            "Kalp hastalığı riski"
+        ],
+        "side_effects": [
+            "Mide ağrısı",
+            "Hazımsızlık",
+            "Baş ağrısı",
+            "Uyuşukluk"
+        ],
+        "interactions": [
+            "Aspirin",
+            "Antikoagülanlar",
+            "Lityum",
+            "Metotreksat"
+        ],
+        "storage": "25°C altında, nemden koruyun",
+        "description": "Naproksen sodyum içeren güçlü NSAİİ. Uzun etki süreli ağrı kesici.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Minoset",
+        "active_ingredients": [
+            "Parasetamol"
+        ],
+        "manufacturer": "Eczacıbaşı",
+        "dosage_form": "tablet",
+        "strengths": [
+            "500 mg"
+        ],
+        "indications": "Hafif ve orta şiddetteki ağrılar, ateş, soğuk algınlığı belirtileri.",
+        "usage": "Yetişkinler: 1-2 tablet, günde 3-4 kez. Dozlar arası 4-6 saat.",
+        "warnings": [
+            "Karaciğer hastalığında dikkat",
+            "Alkol kullanımından kaçının"
+        ],
+        "side_effects": [
+            "Alerjik reaksiyonlar",
+            "Mide rahatsızlığı"
+        ],
+        "interactions": [
+            "Warfarin",
+            "Alkol"
+        ],
+        "storage": "Oda sıcaklığında saklayın",
+        "description": "Parasetamol içeren ağrı kesici ve ateş düşürücü. Parol'e alternatif.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Calpol",
+        "active_ingredients": [
+            "Parasetamol"
+        ],
+        "manufacturer": "GSK",
+        "dosage_form": "süspansiyon",
+        "strengths": [
+            "120 mg/5ml",
+            "250 mg/5ml"
+        ],
+        "indications": "Bebek ve çocuklarda ateş düşürücü ve ağrı kesici. Diş çıkarma ağrısı, aşı sonrası ateş.",
+        "usage": "2-3 ay: 2.5 ml, 3-6 ay: 2.5 ml, 6-24 ay: 5 ml, 2-4 yaş: 7.5 ml. 4-6 saatte bir.",
+        "warnings": [
+            "Yaşa uygun doz kullanın",
+            "3 günden fazla kullanmayın",
+            "Diğer parasetamol içeren ilaçlarla birlikte kullanmayın"
+        ],
+        "side_effects": [
+            "Alerjik reaksiyonlar",
+            "Döküntü"
+        ],
+        "interactions": [
+            "Diğer parasetamol içeren ilaçlar"
+        ],
+        "storage": "25°C altında saklayın. Açtıktan sonra 6 ay içinde kullanın.",
+        "description": "Çocuklar için özel formüle edilmiş parasetamol süspansiyonu. Meyve aromalı.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Augmentin",
+        "active_ingredients": [
+            "Amoksisilin",
+            "Klavulanik Asit"
+        ],
+        "manufacturer": "GSK",
+        "dosage_form": "tablet",
+        "strengths": [
+            "625 mg",
+            "1000 mg"
+        ],
+        "indications": "Üst ve alt solunum yolu enfeksiyonları, idrar yolu enfeksiyonları, deri ve yumuşak doku enfeksiyonları.",
+        "usage": "Yetişkinler: 625 mg günde 3 kez veya 1000 mg günde 2 kez. Yemek başlangıcında alın. Tedavi süresi 5-14 gün.",
+        "warnings": [
+            "Penisilin alerjisi olanlarda kullanmayın",
+            "Karaciğer fonksiyonlarını izleyin",
+            "İshale dikkat"
+        ],
+        "side_effects": [
+            "İshal",
+            "Bulantı",
+            "Kusma",
+            "Mantar enfeksiyonları",
+            "Döküntü"
+        ],
+        "interactions": [
+            "Allopurinol",
+            "Metotreksat",
+            "Oral kontraseptifler"
+        ],
+        "storage": "25°C altında, kuru yerde saklayın",
+        "description": "Geniş spektrumlu antibiyotik. Beta-laktamaz inhibitörü içerir.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Zinnat",
+        "active_ingredients": [
+            "Sefuroksim Aksetil"
+        ],
+        "manufacturer": "GSK",
+        "dosage_form": "tablet",
+        "strengths": [
+            "250 mg",
+            "500 mg"
+        ],
+        "indications": "Solunum yolu enfeksiyonları, kulak enfeksiyonları, idrar yolu enfeksiyonları, deri enfeksiyonları.",
+        "usage": "Yetişkinler: 250-500 mg günde 2 kez. Yemekle birlikte alın. Tedavi 7-10 gün.",
+        "warnings": [
+            "Sefalosporin alerjisi",
+            "Böbrek yetmezliğinde doz ayarı",
+            "Uzun süreli kullanımda süperenfeksiyon"
+        ],
+        "side_effects": [
+            "İshal",
+            "Bulantı",
+            "Baş ağrısı",
+            "Döküntü"
+        ],
+        "interactions": [
+            "Probenesid",
+            "Aminoglikozitler"
+        ],
+        "storage": "30°C altında saklayın",
+        "description": "2. kuşak sefalosporin grubu antibiyotik. Geniş spektrumlu.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Cefaks",
+        "active_ingredients": [
+            "Sefuroksim Aksetil"
+        ],
+        "manufacturer": "Bilim İlaç",
+        "dosage_form": "tablet",
+        "strengths": [
+            "250 mg",
+            "500 mg"
+        ],
+        "indications": "Akut sinüzit, orta kulak iltihabı, alt solunum yolu enfeksiyonları, idrar yolu enfeksiyonları.",
+        "usage": "250-500 mg günde 2 kez. Yemeklerle birlikte alın.",
+        "warnings": [
+            "Sefalosporin/penisilin alerjisi",
+            "Böbrek hastalarında dikkat"
+        ],
+        "side_effects": [
+            "İshal",
+            "Bulantı",
+            "Karın ağrısı",
+            "Mantar enfeksiyonu"
+        ],
+        "interactions": [
+            "Probenesid",
+            "Oral antikoagülanlar"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Zinnat'ın jenerik eşdeğeri. Ekonomik seçenek.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Klamoks",
+        "active_ingredients": [
+            "Amoksisilin",
+            "Klavulanik Asit"
+        ],
+        "manufacturer": "Bilim İlaç",
+        "dosage_form": "tablet",
+        "strengths": [
+            "625 mg",
+            "1000 mg"
+        ],
+        "indications": "Bakteriyel enfeksiyonlar: sinüzit, bronşit, pnömoni, idrar yolu enfeksiyonları.",
+        "usage": "625 mg günde 3 kez veya 1000 mg günde 2 kez. Yemekle alın.",
+        "warnings": [
+            "Penisilin alerjisi",
+            "Mononükleozda döküntü riski"
+        ],
+        "side_effects": [
+            "İshal",
+            "Bulantı",
+            "Karın ağrısı",
+            "Döküntü"
+        ],
+        "interactions": [
+            "Allopurinol",
+            "Metotreksat",
+            "Warfarin"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Augmentin'in jenerik eşdeğeri. Geniş spektrumlu antibiyotik.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Flagyl",
+        "active_ingredients": [
+            "Metronidazol"
+        ],
+        "manufacturer": "Sanofi",
+        "dosage_form": "tablet",
+        "strengths": [
+            "250 mg",
+            "500 mg"
+        ],
+        "indications": "Anaerobik bakteri enfeksiyonları, paraziter enfeksiyonlar (giardiasis, amipli dizanteri), H. pylori tedavisi.",
+        "usage": "Enfeksiyon tipine göre değişir. Genellikle 500 mg günde 3 kez, 7-10 gün.",
+        "warnings": [
+            "Tedavi süresince ve sonrasında 48 saat alkol almayın - disülfiram reaksiyonu",
+            "Nöropati riski"
+        ],
+        "side_effects": [
+            "Metalik tat",
+            "Bulantı",
+            "İshal",
+            "Baş ağrısı",
+            "Koyu idrar"
+        ],
+        "interactions": [
+            "Alkol - şiddetli reaksiyon",
+            "Warfarin",
+            "Lityum",
+            "Disülfiram"
+        ],
+        "storage": "25°C altında, ışıktan koruyun",
+        "description": "Antiprotozoal ve antibakteriyel ilaç. H. pylori eradikasyonunda kullanılır.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Gripin",
+        "active_ingredients": [
+            "Parasetamol",
+            "Klorfeniramin Maleat",
+            "Kafein"
+        ],
+        "manufacturer": "Bayer",
+        "dosage_form": "tablet",
+        "strengths": [
+            "500 mg + 2 mg + 25 mg"
+        ],
+        "indications": "Soğuk algınlığı ve grip belirtileri: ateş, baş ağrısı, burun akıntısı, hapşırma.",
+        "usage": "Yetişkinler: 1-2 tablet, günde 3 kez. Maksimum günlük doz 8 tablet.",
+        "warnings": [
+            "Uyku hali yapabilir, araç kullanmayın",
+            "Prostat büyümesinde dikkat",
+            "Glokomda kullanmayın"
+        ],
+        "side_effects": [
+            "Uyuşukluk",
+            "Ağız kuruluğu",
+            "Baş dönmesi"
+        ],
+        "interactions": [
+            "Alkol",
+            "Sedatifler",
+            "MAO inhibitörleri"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Soğuk algınlığı kombinasyonu. Antihistaminik ve ağrı kesici içerir.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Fervex",
+        "active_ingredients": [
+            "Parasetamol",
+            "Feniraminin Maleat",
+            "Askorbik Asit"
+        ],
+        "manufacturer": "UPSA",
+        "dosage_form": "saşe",
+        "strengths": [
+            "500 mg + 25 mg + 200 mg"
+        ],
+        "indications": "Grip ve soğuk algınlığı belirtileri: ateş, baş ağrısı, burun tıkanıklığı, hapşırma.",
+        "usage": "Yetişkinler: 1 saşe sıcak suda eritilerek, günde 3-4 kez. Akşamları alınması önerilir.",
+        "warnings": [
+            "Uyku hali yapabilir",
+            "12 yaş altında kullanmayın",
+            "Karaciğer hastalarında dikkat"
+        ],
+        "side_effects": [
+            "Uyuşukluk",
+            "Ağız kuruluğu",
+            "Kabızlık",
+            "Görme bulanıklığı"
+        ],
+        "interactions": [
+            "Alkol",
+            "Sedatifler",
+            "MAO inhibitörleri"
+        ],
+        "storage": "25°C altında, nemden koruyun",
+        "description": "Sıcak içecek olarak tüketilen grip ilacı. Gece kullanımına uygun.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Coldrex",
+        "active_ingredients": [
+            "Parasetamol",
+            "Fenilefrin",
+            "Kafein",
+            "Terpinhidrat",
+            "Askorbik Asit"
+        ],
+        "manufacturer": "GSK",
+        "dosage_form": "tablet",
+        "strengths": [
+            "500 mg + 5 mg + 25 mg + 20 mg + 30 mg"
+        ],
+        "indications": "Soğuk algınlığı ve grip: ateş, ağrı, burun tıkanıklığı, öksürük.",
+        "usage": "Yetişkinler: 2 tablet, günde 4 kez. Dozlar arası en az 4 saat.",
+        "warnings": [
+            "Hipertansiyonda dikkat (vazokonstriktör içerir)",
+            "Diyabetlilerde dikkat",
+            "12 yaş altında kullanmayın"
+        ],
+        "side_effects": [
+            "Uyuşukluk",
+            "Mide bulantısı",
+            "Çarpıntı",
+            "Baş ağrısı"
+        ],
+        "interactions": [
+            "MAO inhibitörleri",
+            "Beta blokerler",
+            "Diğer sempatomimetikler"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Kapsamlı soğuk algınlığı formülü. Burun açıcı ve öksürük kesici içerir.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Majezik",
+        "active_ingredients": [
+            "Flurbiprofen"
+        ],
+        "manufacturer": "Sanofi",
+        "dosage_form": "tablet",
+        "strengths": [
+            "100 mg"
+        ],
+        "indications": "Romatizmal hastalıklar, eklem ağrıları, kas ağrıları, diş ağrısı, adet ağrısı.",
+        "usage": "100 mg günde 2-3 kez. Yemeklerle birlikte alın.",
+        "warnings": [
+            "Mide ülseri riski",
+            "Böbrek ve karaciğer hastalarında dikkat",
+            "Kanama riski"
+        ],
+        "side_effects": [
+            "Mide ağrısı",
+            "Hazımsızlık",
+            "Baş ağrısı",
+            "Baş dönmesi"
+        ],
+        "interactions": [
+            "Aspirin",
+            "Antikoagülanlar",
+            "Lityum",
+            "Metotreksat"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Flurbiprofen içeren NSAİİ. Güçlü ağrı kesici ve antienflamatuar.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Aferin Forte",
+        "active_ingredients": [
+            "Parasetamol",
+            "Klorfeniramin Maleat",
+            "Pseudoefedrin"
+        ],
+        "manufacturer": "Eczacıbaşı",
+        "dosage_form": "tablet",
+        "strengths": [
+            "650 mg + 4 mg + 60 mg"
+        ],
+        "indications": "Grip ve soğuk algınlığı: ateş, baş ağrısı, burun tıkanıklığı, hapşırma, burun akıntısı.",
+        "usage": "Yetişkinler: 1 tablet günde 3-4 kez.",
+        "warnings": [
+            "Hipertansiyonda kullanmayın",
+            "Tiroid hastalığında dikkat",
+            "Uyku hali yapabilir"
+        ],
+        "side_effects": [
+            "Uyuşukluk",
+            "Ağız kuruluğu",
+            "Çarpıntı",
+            "Sinirlilik"
+        ],
+        "interactions": [
+            "MAO inhibitörleri",
+            "Beta blokerler",
+            "Alkol"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Güçlü formüllü soğuk algınlığı kombinasyonu. Burun açıcı (dekonjestan) içerir.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Lansor",
+        "active_ingredients": [
+            "Lansoprazol"
+        ],
+        "manufacturer": "Abdi İbrahim",
+        "dosage_form": "kapsül",
+        "strengths": [
+            "15 mg",
+            "30 mg"
+        ],
+        "indications": "Mide ülseri, duodenum ülseri, gastroözofageal reflü hastalığı (GÖRH), Zollinger-Ellison sendromu.",
+        "usage": "30 mg günde 1 kez, sabah aç karnına. GÖRH için 4-8 hafta.",
+        "warnings": [
+            "Uzun süreli kullanımda B12 vitamini eksikliği",
+            "Magnezyum düşüklüğü riski",
+            "Kemik kırığı riski"
+        ],
+        "side_effects": [
+            "Baş ağrısı",
+            "İshal",
+            "Karın ağrısı",
+            "Bulantı"
+        ],
+        "interactions": [
+            "Atazanavir",
+            "Klopidogrel",
+            "Metotreksat",
+            "Digoksin"
+        ],
+        "storage": "25°C altında, nemden koruyun",
+        "description": "Proton pompa inhibitörü (PPI). Mide asidi salgısını azaltır.",
+        "prescription_status": "OTC/Rx"
+    },
+    {
+        "drug_name": "Nexium",
+        "active_ingredients": [
+            "Esomeprazol"
+        ],
+        "manufacturer": "AstraZeneca",
+        "dosage_form": "tablet",
+        "strengths": [
+            "20 mg",
+            "40 mg"
+        ],
+        "indications": "GÖRH, peptik ülser, NSAİİ'lere bağlı gastrik ülser, H. pylori eradikasyonu.",
+        "usage": "20-40 mg günde 1 kez. Yutmadan önce çiğnemeyin.",
+        "warnings": [
+            "Uzun süreli kullanımda osteoporoz riski",
+            "Hipomagnezemiye dikkat",
+            "C. difficile enfeksiyonu riski"
+        ],
+        "side_effects": [
+            "Baş ağrısı",
+            "Karın ağrısı",
+            "İshal",
+            "Bulantı",
+            "Gaz"
+        ],
+        "interactions": [
+            "Klopidogrel (etkinliğini azaltır)",
+            "Atazanavir",
+            "Nelfinavir"
+        ],
+        "storage": "30°C altında saklayın",
+        "description": "Proton pompa inhibitörü. Omeprazolün S-izomeri, daha etkili.",
+        "prescription_status": "OTC/Rx"
+    },
+    {
+        "drug_name": "Controloc",
+        "active_ingredients": [
+            "Pantoprazol"
+        ],
+        "manufacturer": "Takeda",
+        "dosage_form": "tablet",
+        "strengths": [
+            "20 mg",
+            "40 mg"
+        ],
+        "indications": "Gastroözofageal reflü, mide ülseri, duodenum ülseri, Zollinger-Ellison sendromu.",
+        "usage": "40 mg günde 1 kez, sabah. Tablet bütün olarak yutulmalı.",
+        "warnings": [
+            "Uzun süreli kullanımda vitamin B12 eksikliği",
+            "Böbrek hastalarında dikkat"
+        ],
+        "side_effects": [
+            "Baş ağrısı",
+            "İshal",
+            "Bulantı",
+            "Karın ağrısı"
+        ],
+        "interactions": [
+            "Atazanavir",
+            "Metotreksat",
+            "Rifampisin"
+        ],
+        "storage": "25°C altında, nemden koruyun",
+        "description": "Proton pompa inhibitörü. Mide asidi tedavisinde etkili.",
+        "prescription_status": "OTC/Rx"
+    },
+    {
+        "drug_name": "Talcid",
+        "active_ingredients": [
+            "Hidrotalcit"
+        ],
+        "manufacturer": "Bayer",
+        "dosage_form": "çiğneme tableti",
+        "strengths": [
+            "500 mg"
+        ],
+        "indications": "Mide ekşimesi, hazımsızlık, mide yanması, asit reflü belirtileri.",
+        "usage": "1-2 tablet, günde 3-4 kez. Yemeklerden 1-2 saat sonra veya şikayetler olduğunda. Çiğneyerek alın.",
+        "warnings": [
+            "Böbrek yetmezliğinde dikkat (alüminyum birikimi)",
+            "Uzun süreli kullanmayın"
+        ],
+        "side_effects": [
+            "Kabızlık",
+            "İshal",
+            "Bulantı"
+        ],
+        "interactions": [
+            "Tetrasiklinler",
+            "Kinolonlar",
+            "Demir preparatları",
+            "Digoksin"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Antasit ilaç. Mide asidini nötralize eder. Hızlı etki.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Zyrtec",
+        "active_ingredients": [
+            "Setirizin"
+        ],
+        "manufacturer": "UCB",
+        "dosage_form": "tablet",
+        "strengths": [
+            "10 mg"
+        ],
+        "indications": "Alerjik rinit (mevsimsel ve yıl boyunca), ürtiker (kurdeşen), kaşıntı, alerjik göz belirtileri.",
+        "usage": "Yetişkinler: 10 mg günde 1 kez. Böbrek yetmezliğinde doz azaltılır.",
+        "warnings": [
+            "Hafif uyuşukluk yapabilir",
+            "Alkol ile dikkat",
+            "Böbrek hastalarında doz ayarı"
+        ],
+        "side_effects": [
+            "Uyuşukluk",
+            "Ağız kuruluğu",
+            "Baş ağrısı",
+            "Yorgunluk"
+        ],
+        "interactions": [
+            "Alkol",
+            "Sedatifler",
+            "Teofilin"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "2. kuşak antihistaminik. Uyku yapma ihtimali düşük.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Aerius",
+        "active_ingredients": [
+            "Desloratadin"
+        ],
+        "manufacturer": "MSD",
+        "dosage_form": "tablet",
+        "strengths": [
+            "5 mg"
+        ],
+        "indications": "Alerjik rinit, kronik ürtiker, alerjik belirtiler (hapşırma, burun akıntısı, kaşıntı).",
+        "usage": "5 mg günde 1 kez. Yemeklerden bağımsız alınabilir.",
+        "warnings": [
+            "Şiddetli böbrek yetmezliğinde dikkat"
+        ],
+        "side_effects": [
+            "Ağız kuruluğu",
+            "Baş ağrısı",
+            "Yorgunluk"
+        ],
+        "interactions": [
+            "Ciddi etkileşim bildirilmemiştir"
+        ],
+        "storage": "30°C altında saklayın",
+        "description": "3. kuşak antihistaminik. Uyku yapmaz, 24 saat etki.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Claritine",
+        "active_ingredients": [
+            "Loratidin"
+        ],
+        "manufacturer": "Bayer",
+        "dosage_form": "tablet",
+        "strengths": [
+            "10 mg"
+        ],
+        "indications": "Mevsimsel alerjik rinit, kronik ürtiker, alerjik cilt belirtileri.",
+        "usage": "10 mg günde 1 kez.",
+        "warnings": [
+            "Karaciğer hastalığında doz azaltın"
+        ],
+        "side_effects": [
+            "Baş ağrısı",
+            "Sinirlilik",
+            "Yorgunluk"
+        ],
+        "interactions": [
+            "Ciddi etkileşim nadirdir"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "2. kuşak antihistaminik. Uzun etki süreli, uyku yapmaz.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Supradyn",
+        "active_ingredients": [
+            "Multivitamin ve Mineraller"
+        ],
+        "manufacturer": "Bayer",
+        "dosage_form": "efervesan tablet",
+        "strengths": [
+            "A, B1, B2, B6, B12, C, D, E vitaminleri + çinko, magnezyum, demir"
+        ],
+        "indications": "Vitamin ve mineral eksikliklerinin önlenmesi ve tedavisi. Yorgunluk, stres dönemlerinde destek.",
+        "usage": "Günde 1 tablet, bir bardak suda eritilerek. Aç veya tok karnına.",
+        "warnings": [
+            "Aşırı dozdan kaçının",
+            "Diğer vitamin takviyeleriyle birlikte kullanmayın"
+        ],
+        "side_effects": [
+            "Mide bulantısı",
+            "Koyu renkli idrar (B vitaminleri)"
+        ],
+        "interactions": [
+            "Demir emilimini etkileyen ilaçlar",
+            "Tetrasiklinler"
+        ],
+        "storage": "25°C altında, nemden koruyun",
+        "description": "Kapsamlı multivitamin ve mineral takviyesi. Enerji ve bağışıklık desteği.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Redoxon",
+        "active_ingredients": [
+            "Askorbik Asit (C Vitamini)"
+        ],
+        "manufacturer": "Bayer",
+        "dosage_form": "efervesan tablet",
+        "strengths": [
+            "1000 mg"
+        ],
+        "indications": "C vitamini eksikliği, bağışıklık sistemi desteği, soğuk algınlığı dönemlerinde.",
+        "usage": "Günde 1 tablet, bir bardak suda eritilerek.",
+        "warnings": [
+            "Böbrek taşı öyküsü olanlarda dikkat",
+            "Aşırı dozda ishal"
+        ],
+        "side_effects": [
+            "Mide bulantısı",
+            "İshal (yüksek dozlarda)"
+        ],
+        "interactions": [
+            "Alüminyum içeren antasitler",
+            "Warfarin"
+        ],
+        "storage": "25°C altında, nemden koruyun",
+        "description": "Yüksek doz C vitamini takviyesi. Antioksidan ve bağışıklık desteği.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Centrum",
+        "active_ingredients": [
+            "Multivitamin ve Mineraller (A-Z formül)"
+        ],
+        "manufacturer": "GSK",
+        "dosage_form": "tablet",
+        "strengths": [
+            "Tam spektrum vitamin ve mineral"
+        ],
+        "indications": "Günlük vitamin ve mineral ihtiyacının karşılanması. Beslenme desteği.",
+        "usage": "Günde 1 tablet, yemekle birlikte.",
+        "warnings": [
+            "Önerilen dozu aşmayın",
+            "Diğer takviyelerle dikkatli kullanın"
+        ],
+        "side_effects": [
+            "Mide bulantısı",
+            "Kabızlık"
+        ],
+        "interactions": [
+            "Tetrasiklinler",
+            "Levodopa",
+            "Tiroid ilaçları"
+        ],
+        "storage": "Oda sıcaklığında, kuru yerde",
+        "description": "A'dan Z'ye multivitamin. 50+ yaş için özel formülleri mevcuttur.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Ventolin",
+        "active_ingredients": [
+            "Salbutamol"
+        ],
+        "manufacturer": "GSK",
+        "dosage_form": "inhaler",
+        "strengths": [
+            "100 mcg/doz"
+        ],
+        "indications": "Astım ve KOAH'ta bronkospazm tedavisi ve önlenmesi. Egzersiz astımı.",
+        "usage": "Gerektiğinde 1-2 puf. Günde maksimum 8 puf. Egzersizden 15-30 dk önce 2 puf.",
+        "warnings": [
+            "Kalp hastalığı olanlarda dikkat",
+            "Aşırı kullanım aritmiye yol açabilir",
+            "Potasyum düşüklüğü riski"
+        ],
+        "side_effects": [
+            "Titreme",
+            "Çarpıntı",
+            "Baş ağrısı",
+            "Kas krampları"
+        ],
+        "interactions": [
+            "Beta blokerler (etkinliği azaltır)",
+            "Teofilin",
+            "Digoksin"
+        ],
+        "storage": "30°C altında, dondurmayın. Basınçlı kaptan dolayı güneşten koruyun.",
+        "description": "Kısa etkili bronkodilator (SABA). Astım kriz tedavisinde ilk tercih.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Concor",
+        "active_ingredients": [
+            "Bisoprolol"
+        ],
+        "manufacturer": "Daiichi Sankyo",
+        "dosage_form": "tablet",
+        "strengths": [
+            "2.5 mg",
+            "5 mg",
+            "10 mg"
+        ],
+        "indications": "Hipertansiyon, koroner kalp hastalığı, kronik kalp yetmezliği, taşikardi.",
+        "usage": "Başlangıç 5 mg günde 1 kez, sabah. Kalp yetmezliğinde düşük dozdan başlanır.",
+        "warnings": [
+            "Astımda kullanmayın",
+            "Tedaviyi aniden kesmeyin",
+            "Diyabette kan şekerini maskeler"
+        ],
+        "side_effects": [
+            "Yorgunluk",
+            "Baş dönmesi",
+            "Bradikardi",
+            "Soğuk el ve ayaklar"
+        ],
+        "interactions": [
+            "Verapamil",
+            "Diltiazem",
+            "Klonidin",
+            "İnsülin"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Kardiyoselektif beta bloker. Kalp hızını ve kan basıncını düşürür.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Coraspin",
+        "active_ingredients": [
+            "Asetilsalisilik Asit"
+        ],
+        "manufacturer": "Bayer",
+        "dosage_form": "enterik kaplı tablet",
+        "strengths": [
+            "100 mg",
+            "300 mg"
+        ],
+        "indications": "Kalp krizi ve inme önleme, stent sonrası, bypass sonrası, koroner arter hastalığı.",
+        "usage": "100 mg günde 1 kez. Yemekle birlikte alın.",
+        "warnings": [
+            "Kanama riski",
+            "Ameliyat öncesi 7 gün kesin",
+            "Mide ülseri öyküsünde dikkat"
+        ],
+        "side_effects": [
+            "Mide kanaması",
+            "Kolay morarma",
+            "Alerjik reaksiyonlar"
+        ],
+        "interactions": [
+            "Warfarin",
+            "Heparin",
+            "Diğer NSAİİ'ler",
+            "Metotreksat"
+        ],
+        "storage": "25°C altında, nemden koruyun",
+        "description": "Düşük doz aspirin. Kan sulandırıcı (antiagregan). Enterik kaplı mide korur.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Ferro Sanol",
+        "active_ingredients": [
+            "Demir (II) Glukonat"
+        ],
+        "manufacturer": "UCB",
+        "dosage_form": "kapsül",
+        "strengths": [
+            "40 mg elemental demir"
+        ],
+        "indications": "Demir eksikliği anemisi ve önlenmesi. Gebelikte demir takviyesi.",
+        "usage": "1-2 kapsül günde 1-2 kez. Aç karnına veya yemeklerle.",
+        "warnings": [
+            "Kabızlık yapabilir",
+            "Dışkıyı siyah renge boyar (normal)",
+            "Demir birikimine dikkat"
+        ],
+        "side_effects": [
+            "Kabızlık",
+            "Mide bulantısı",
+            "Karın ağrısı",
+            "Siyah dışkı"
+        ],
+        "interactions": [
+            "Tetrasiklinler",
+            "Antasitler",
+            "Kalsiyum",
+            "Kinolonlar"
+        ],
+        "storage": "25°C altında, çocuklardan uzak tutun",
+        "description": "Demir takviyesi. Anemi tedavisinde ve hamilelikte kullanılır.",
+        "prescription_status": "OTC"
+    },
+    {
+        "drug_name": "Arveles",
+        "active_ingredients": [
+            "Deksketoprofen Trometamol"
+        ],
+        "manufacturer": "Menarini",
+        "dosage_form": "tablet",
+        "strengths": [
+            "25 mg"
+        ],
+        "indications": "Akut ağrı: kas-iskelet ağrıları, diş ağrısı, adet ağrısı, baş ağrısı.",
+        "usage": "25 mg her 8 saatte bir. Maksimum günlük doz 75 mg. Kısa süreli kullanım.",
+        "warnings": [
+            "Mide ülseri ve kanama riski",
+            "Böbrek hastalarında dikkat",
+            "5 günden fazla kullanmayın"
+        ],
+        "side_effects": [
+            "Mide ağrısı",
+            "Bulantı",
+            "Hazımsızlık",
+            "Baş ağrısı"
+        ],
+        "interactions": [
+            "Aspirin",
+            "Diğer NSAİİ'ler",
+            "Antikoagülanlar",
+            "Lityum"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Hızlı etkili NSAİİ. Ketoprofenin aktif izomeri. Güçlü ağrı kesici.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Dikloron",
+        "active_ingredients": [
+            "Diklofenak Potasyum"
+        ],
+        "manufacturer": "Deva",
+        "dosage_form": "tablet",
+        "strengths": [
+            "50 mg"
+        ],
+        "indications": "Romatizmal ağrılar, kas-iskelet ağrıları, sırt ağrısı, spor yaralanmaları, adet ağrısı.",
+        "usage": "50 mg günde 2-3 kez. Yemeklerle birlikte alın.",
+        "warnings": [
+            "Kardiyovasküler risk",
+            "Mide ülseri riski",
+            "Uzun süreli kullanmayın"
+        ],
+        "side_effects": [
+            "Mide ağrısı",
+            "Bulantı",
+            "Baş ağrısı",
+            "Baş dönmesi"
+        ],
+        "interactions": [
+            "Aspirin",
+            "Antikoagülanlar",
+            "Lityum",
+            "Diüretikler"
+        ],
+        "storage": "25°C altında, nemden koruyun",
+        "description": "NSAİİ grubu ağrı kesici. Voltaren'in jenerik eşdeğeri.",
+        "prescription_status": "Rx"
+    },
+    {
+        "drug_name": "Aspirin",
+        "active_ingredients": [
+            "Asetilsalisilik Asit"
+        ],
+        "manufacturer": "Bayer",
+        "dosage_form": "tablet",
+        "strengths": [
+            "100 mg",
+            "300 mg",
+            "500 mg"
+        ],
+        "indications": "Ağrı, ateş, enflamasyon. Düşük dozda kalp koruma.",
+        "usage": "Ağrı için: 300-1000 mg günde 3-4 kez. Kalp için: 100 mg günde 1 kez.",
+        "warnings": [
+            "Mide ülseri",
+            "Kanama riski",
+            "16 yaş altında (Reye sendromu)",
+            "Hamilelikte son 3 ay"
+        ],
+        "side_effects": [
+            "Mide kanaması",
+            "Kulak çınlaması",
+            "Alerjik reaksiyonlar"
+        ],
+        "interactions": [
+            "Warfarin",
+            "Metotreksat",
+            "NSAİİ'ler"
+        ],
+        "storage": "25°C altında saklayın",
+        "description": "Klasik ağrı kesici ve kan sulandırıcı. 100 yılı aşkın kullanım.",
+        "prescription_status": "OTC"
+    }
+]

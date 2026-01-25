@@ -1,0 +1,98 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "drug-image-pipeline"
+version = "1.0.0"
+description = "AI pipeline for pharmaceutical drug package image analysis"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Drug Image Pipeline Team"}
+]
+keywords = [
+    "pharmaceutical",
+    "drug",
+    "ocr",
+    "computer-vision",
+    "nlp",
+    "rag",
+    "healthcare",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Healthcare Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+
+dependencies = [
+    "numpy>=1.24.0",
+    "Pillow>=10.0.0",
+    "ultralytics>=8.0.0",
+    "paddleocr>=2.7.0",
+    "chromadb>=0.4.0",
+    "sentence-transformers>=2.2.0",
+    "openai>=1.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+    "ruff>=0.1.0",
+]
+gpu = [
+    "torch>=2.0.0",
+    "paddlepaddle-gpu>=2.5.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/drug-image-pipeline"
+Documentation = "https://github.com/your-org/drug-image-pipeline#readme"
+Repository = "https://github.com/your-org/drug-image-pipeline"
+
+[project.scripts]
+drug-pipeline = "main:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "config*"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=drug_image_pipeline --cov-report=term-missing"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4"]
+ignore = ["E501"]
