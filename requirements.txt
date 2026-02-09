@@ -24,3 +24,8 @@ python-dotenv>=1.0.0
 # Optional: GPU support
 # torch>=2.0.0  # Uncomment for GPU support
 # paddlepaddle-gpu>=2.5.0  # Uncomment for GPU support
+
+# REST API
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.6

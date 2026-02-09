@@ -94,6 +94,18 @@ class LoggingConfig:
 
 
 @dataclass
+class APIConfig:
+    """REST API configuration."""
+    
+    host: str = "0.0.0.0"
+    port: int = 8000
+    workers: int = 1  # Use 1 for GPU workloads to avoid CUDA issues
+    cors_origins: list = field(default_factory=lambda: ["*"])
+    max_upload_size_mb: int = 50
+    request_timeout_seconds: int = 180
+
+
+@dataclass
 class AppConfig:
     """
     Main application configuration.
@@ -109,6 +121,7 @@ class AppConfig:
     pipeline: PipelineConfig = field(default_factory=PipelineConfig)
     safety: SafetyConfig = field(default_factory=SafetyConfig)
     logging: LoggingConfig = field(default_factory=LoggingConfig)
+    api: APIConfig = field(default_factory=APIConfig)
     
     # Data paths
     data_dir: str = "./data"
