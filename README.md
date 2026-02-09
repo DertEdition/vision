@@ -29,19 +29,19 @@ This system analyzes images of pharmaceutical drug packages (boxes, blisters, le
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                           API Layer                             │
-│              (FastAPI, Routes, Request/Response Models)           │
+│              (FastAPI, Routes, Request/Response Models)         │
 ├─────────────────────────────────────────────────────────────────┤
-│                        Application Layer                         │
-│                   (Pipeline Orchestration)                        │
+│                        Application Layer                        │
+│                   (Pipeline Orchestration)                      │
 ├─────────────────────────────────────────────────────────────────┤
-│                         Domain Layer                              │
-│              (Entities, Value Objects, Ports)                     │
+│                         Domain Layer                            │
+│              (Entities, Value Objects, Ports)                   │
 ├─────────────────────────────────────────────────────────────────┤
-│                     Infrastructure Layer                          │
-│    (YOLO, PaddleOCR, ChromaDB, OpenAI/Ollama Adapters)           │
+│                     Infrastructure Layer                        │
+│    (YOLO, PaddleOCR, ChromaDB, OpenAI/Ollama Adapters)          │
 ├─────────────────────────────────────────────────────────────────┤
-│                    Cross-Cutting Concerns                         │
-│           (Logging, Validation, Safety, Error Handling)           │
+│                    Cross-Cutting Concerns                       │
+│           (Logging, Validation, Safety, Error Handling)         │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
