@@ -10,12 +10,18 @@ from functools import lru_cache
 from typing import Generator
 
 from ..application.services import DrugAnalysisService
+from ..application.services.medical_analysis_service import MedicalAnalysisService
 from ..application.pipeline import PipelineBuilder
+from ..application.pipeline.medical_pipeline import MedicalPipelineBuilder
 from ..infrastructure.vision import VisionAnalyzerFactory, VisionAnalyzerType
 from ..infrastructure.ocr import OCRFactory, OCRType
 from ..infrastructure.entity_extraction import EntityExtractorFactory, EntityExtractorType
 from ..infrastructure.rag import KnowledgeRetrieverFactory, KnowledgeRetrieverType
 from ..infrastructure.llm import LLMFactory, LLMType
+from ..infrastructure.classification import (
+    ClassifierFactory,
+    ClassifierType,
+)
 
 
 logger = logging.getLogger(__name__)
@@ -131,4 +137,77 @@ def reset_dependencies():
     get_config.cache_clear()
     get_pipeline.cache_clear()
     get_analysis_service.cache_clear()
+    get_medical_analysis_service.cache_clear()
     logger.info("Dependencies reset")
+
+
+def _create_medical_pipelines(config):
+    """
+    Create configured medical analysis pipelines from configuration.
+    
+    Returns:
+        Tuple of (dermatology_pipeline, chest_xray_pipeline)
+    """
+    derma_pipeline = None
+    chest_pipeline = None
+    
+    if config.dermatology.enabled:
+        try:
+            derma_classifier = ClassifierFactory.create(
+                ClassifierType.DERMATOLOGY,
+                model_path=config.dermatology.model_path,
+                device=config.dermatology.device,
+                confidence_threshold=config.dermatology.confidence_threshold,
+                image_size=config.dermatology.image_size,
+            )
+            derma_pipeline = MedicalPipelineBuilder()\
+                .with_classifier(derma_classifier)\
+                .with_diagnosis_type("dermatology")\
+                .with_timeout(config.pipeline.timeout_seconds)\
+                .build()
+            logger.info("Dermatology pipeline created")
+        except Exception as e:
+            logger.warning(f"Failed to create dermatology pipeline: {e}")
+    
+    if config.chest_xray.enabled:
+        try:
+            chest_classifier = ClassifierFactory.create(
+                ClassifierType.CHEST_XRAY,
+                model_path=config.chest_xray.model_path,
+                device=config.chest_xray.device,
+                confidence_threshold=config.chest_xray.confidence_threshold,
+                image_size=config.chest_xray.image_size,
+            )
+            chest_pipeline = MedicalPipelineBuilder()\
+                .with_classifier(chest_classifier)\
+                .with_diagnosis_type("chest_xray")\
+                .with_timeout(config.pipeline.timeout_seconds)\
+                .build()
+            logger.info("Chest X-ray pipeline created")
+        except Exception as e:
+            logger.warning(f"Failed to create chest X-ray pipeline: {e}")
+    
+    return derma_pipeline, chest_pipeline
+
+
+@lru_cache()
+def get_medical_analysis_service() -> MedicalAnalysisService:
+    """
+    Get MedicalAnalysisService as a singleton.
+    
+    Creates and caches dermatology and chest X-ray pipelines.
+    
+    Returns:
+        Configured MedicalAnalysisService instance
+    """
+    config = get_config()
+    logger.info("Initializing medical analysis service...")
+    
+    derma_pipeline, chest_pipeline = _create_medical_pipelines(config)
+    
+    service = MedicalAnalysisService(
+        dermatology_pipeline=derma_pipeline,
+        chest_xray_pipeline=chest_pipeline,
+    )
+    logger.info("MedicalAnalysisService initialized")
+    return service

@@ -10,6 +10,7 @@ from .ocr import PaddleOCRExtractor, TesseractOCRExtractor, OCRFactory
 from .entity_extraction import HybridEntityExtractor, EntityExtractorFactory
 from .rag import ChromaKnowledgeRetriever, KnowledgeRetrieverFactory
 from .llm import OpenAIResponseGenerator, LLMFactory
+from .classification import DermatologyClassifier, ChestXrayClassifier, ClassifierFactory
 
 __all__ = [
     # Vision
@@ -28,4 +29,8 @@ __all__ = [
     # LLM
     "OpenAIResponseGenerator",
     "LLMFactory",
+    # Classification
+    "DermatologyClassifier",
+    "ChestXrayClassifier",
+    "ClassifierFactory",
 ]

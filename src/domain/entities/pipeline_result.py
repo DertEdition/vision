@@ -39,6 +39,8 @@ class PipelineStage(Enum):
     KNOWLEDGE_RETRIEVAL = "knowledge_retrieval"
     RESPONSE_GENERATION = "response_generation"
     SAFETY_CHECK = "safety_check"
+    IMAGE_CLASSIFICATION = "image_classification"
+    MEDICAL_RESPONSE = "medical_response"
 
 
 @dataclass

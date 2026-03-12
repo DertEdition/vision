@@ -180,3 +180,50 @@ class HealthResponse(BaseModel):
         None,
         description="Component health status"
     )
+
+
+# ============================================================
+# Medical Diagnosis Responses
+# ============================================================
+
+
+class DermatologyDiagnosisResponse(BaseModel):
+    """Response model for dermatology diagnosis."""
+    
+    malignancy: str = Field(..., description="Malignancy classification (benign/malignant/indeterminate)")
+    malignancy_confidence: float = Field(..., description="Confidence score for malignancy")
+    disease_type: str = Field(..., description="Specific disease sub-class")
+    disease_type_confidence: float = Field(..., description="Confidence for disease type")
+    super_class: str = Field(default="unknown", description="Top-level class")
+    main_class: str = Field(default="unknown", description="Main class")
+    recommendations: List[str] = Field(default_factory=list, description="Medical recommendations")
+
+
+class ChestXrayDiagnosisResponse(BaseModel):
+    """Response model for chest X-ray diagnosis."""
+    
+    findings: List[str] = Field(default_factory=list, description="Detected conditions")
+    finding_probabilities: Dict[str, float] = Field(default_factory=dict, description="Condition probabilities")
+    has_abnormality: bool = Field(default=False, description="Whether abnormality detected")
+    primary_finding: str = Field(default="No Finding", description="Most likely finding")
+    recommendations: List[str] = Field(default_factory=list, description="Medical recommendations")
+
+
+class MedicalAnalysisResponse(BaseModel):
+    """
+    Response model for medical image analysis endpoints.
+    
+    Covers both dermatology and chest X-ray diagnosis results.
+    """
+    
+    request_id: str = Field(..., description="Unique request identifier")
+    success: bool = Field(..., description="Whether analysis was successful")
+    diagnosis_type: str = Field(..., description="Type of diagnosis performed")
+    dermatology: Optional[Dict] = Field(None, description="Dermatology diagnosis details")
+    chest_xray: Optional[Dict] = Field(None, description="Chest X-ray diagnosis details")
+    explanation: Optional[str] = Field(None, description="Generated explanation text")
+    confidence: Optional[str] = Field(None, description="Overall confidence level")
+    warnings: List[str] = Field(default_factory=list, description="Safety warnings")
+    disclaimer: str = Field(..., description="Medical disclaimer")
+    processing_time_ms: float = Field(..., description="Total processing time in ms")
+    errors: Optional[List[Dict[str, Any]]] = Field(None, description="Error details if any")

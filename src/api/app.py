@@ -5,12 +5,16 @@ Creates and configures the FastAPI application instance.
 """
 
 import logging
+from pathlib import Path
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
 
 from .routes import analysis_router, health_router
+from .routes.medical import router as medical_router
 from .exceptions import register_exception_handlers
 from .dependencies import get_config
 
@@ -52,20 +56,19 @@ def create_app() -> FastAPI:
     app = FastAPI(
         title="Drug Image Analysis API",
         description="""
-REST API for analyzing pharmaceutical drug images.
+REST API for analyzing pharmaceutical drug images and medical image diagnosis.
 
 ## Features
 
-- **Vision Analysis**: Detect drug packaging and regions of interest
-- **OCR**: Extract text from drug labels and packaging
-- **Entity Extraction**: Identify drug names, ingredients, dosages
+- **Drug Image Analysis**: Detect drug packaging, extract text, identify medications
+- **Dermatology Diagnosis**: Classify skin lesions for malignancy and disease type
+- **Chest X-ray Analysis**: Multi-label thoracic disease detection
 - **Knowledge Retrieval**: Match against drug knowledge base
 - **Response Generation**: Generate natural language explanations
 
 ## Usage
 
-Upload a drug image to get detailed information about the medication,
-including active ingredients, dosage, warnings, and usage instructions.
+Upload a drug image, skin lesion photo, or chest X-ray to get detailed analysis.
 
 ⚠️ **Disclaimer**: This API is for educational purposes only and is not
 a substitute for professional medical advice.
@@ -92,6 +95,17 @@ a substitute for professional medical advice.
     # Include routers
     app.include_router(health_router)
     app.include_router(analysis_router)
+    app.include_router(medical_router)
+    
+    # Mount static files for test UI
+    static_dir = Path(__file__).resolve().parent.parent.parent / "static"
+    if static_dir.is_dir():
+        app.mount("/static", StaticFiles(directory=str(static_dir), html=True), name="static")
+        
+        @app.get("/", include_in_schema=False)
+        async def root_redirect():
+            """Redirect root to test UI."""
+            return RedirectResponse(url="/static/test_ui.html")
     
     logger.info("FastAPI application created successfully")
     

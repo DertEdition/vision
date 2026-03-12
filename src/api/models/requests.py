@@ -75,3 +75,61 @@ class AnalyzeFromBase64Request(BaseModel):
             ]
         }
     }
+
+
+class MedicalAnalyzeFromBase64Request(BaseModel):
+    """Request model for medical image analysis from base64 data."""
+    
+    image_base64: str = Field(
+        ...,
+        description="Base64-encoded medical image"
+    )
+    format: Optional[str] = Field(
+        None,
+        description="Image format (jpeg, png, etc.)"
+    )
+    options: Optional[Dict[str, Any]] = Field(
+        None,
+        description="Optional analysis configuration"
+    )
+    
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "image_base64": "/9j/4AAQSkZJRg...",
+                    "format": "jpeg",
+                    "options": None
+                }
+            ]
+        }
+    }
+
+
+class MedicalAnalyzeFromPathRequest(BaseModel):
+    """Request model for medical image analysis from file path."""
+    
+    file_path: str = Field(
+        ...,
+        description="Path to the medical image file on the server"
+    )
+    diagnosis_type: str = Field(
+        ...,
+        description="Type of diagnosis: 'dermatology' or 'chest_xray'"
+    )
+    options: Optional[Dict[str, Any]] = Field(
+        None,
+        description="Optional analysis configuration"
+    )
+    
+    model_config = {
+        "json_schema_extra": {
+            "examples": [
+                {
+                    "file_path": "data/DERM12345/derm12345_test/DERM_255498.jpg",
+                    "diagnosis_type": "dermatology",
+                    "options": None
+                }
+            ]
+        }
+    }

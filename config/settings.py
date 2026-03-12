@@ -106,6 +106,36 @@ class APIConfig:
 
 
 @dataclass
+class DermatologyConfig:
+    """
+    Dermatology classification configuration.
+    
+    Settings for the CNN-based skin lesion classifier.
+    """
+    
+    model_path: str = "./models/dermatology_model.pth"
+    device: str = "cuda"
+    confidence_threshold: float = 0.5
+    image_size: int = 224
+    enabled: bool = True
+
+
+@dataclass
+class ChestXrayConfig:
+    """
+    Chest X-ray classification configuration.
+    
+    Settings for the CNN-based chest X-ray disease classifier.
+    """
+    
+    model_path: str = "./models/chest_xray_model.pth"
+    device: str = "cuda"
+    confidence_threshold: float = 0.5
+    image_size: int = 224
+    enabled: bool = True
+
+
+@dataclass
 class AppConfig:
     """
     Main application configuration.
@@ -122,6 +152,8 @@ class AppConfig:
     safety: SafetyConfig = field(default_factory=SafetyConfig)
     logging: LoggingConfig = field(default_factory=LoggingConfig)
     api: APIConfig = field(default_factory=APIConfig)
+    dermatology: DermatologyConfig = field(default_factory=DermatologyConfig)
+    chest_xray: ChestXrayConfig = field(default_factory=ChestXrayConfig)
     
     # Data paths
     data_dir: str = "./data"
@@ -170,6 +202,18 @@ class AppConfig:
         if log_level := os.getenv("DRUG_PIPELINE_LOG_LEVEL"):
             config.logging.level = log_level
         
+        # Dermatology
+        if derm_model := os.getenv("DRUG_PIPELINE_DERM_MODEL_PATH"):
+            config.dermatology.model_path = derm_model
+        if derm_device := os.getenv("DRUG_PIPELINE_DERM_DEVICE"):
+            config.dermatology.device = derm_device
+        
+        # Chest X-ray
+        if xray_model := os.getenv("DRUG_PIPELINE_XRAY_MODEL_PATH"):
+            config.chest_xray.model_path = xray_model
+        if xray_device := os.getenv("DRUG_PIPELINE_XRAY_DEVICE"):
+            config.chest_xray.device = xray_device
+        
         return config
     
     @classmethod
@@ -211,6 +255,16 @@ class AppConfig:
             for key, value in data["safety"].items():
                 if hasattr(config.safety, key):
                     setattr(config.safety, key, value)
+        
+        if "dermatology" in data:
+            for key, value in data["dermatology"].items():
+                if hasattr(config.dermatology, key):
+                    setattr(config.dermatology, key, value)
+        
+        if "chest_xray" in data:
+            for key, value in data["chest_xray"].items():
+                if hasattr(config.chest_xray, key):
+                    setattr(config.chest_xray, key, value)
         
         if "data_dir" in data:
             config.data_dir = data["data_dir"]
@@ -258,6 +312,20 @@ class AppConfig:
             "safety": {
                 "confidence_threshold": self.safety.confidence_threshold,
                 "strict_mode": self.safety.strict_mode,
+            },
+            "dermatology": {
+                "model_path": self.dermatology.model_path,
+                "device": self.dermatology.device,
+                "confidence_threshold": self.dermatology.confidence_threshold,
+                "image_size": self.dermatology.image_size,
+                "enabled": self.dermatology.enabled,
+            },
+            "chest_xray": {
+                "model_path": self.chest_xray.model_path,
+                "device": self.chest_xray.device,
+                "confidence_threshold": self.chest_xray.confidence_threshold,
+                "image_size": self.chest_xray.image_size,
+                "enabled": self.chest_xray.enabled,
             },
             "data_dir": self.data_dir,
             "knowledge_base_dir": self.knowledge_base_dir,
