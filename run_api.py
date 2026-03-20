@@ -8,7 +8,7 @@ Usage:
     python run_api.py
     
     # Or with custom host/port:
-    python run_api.py --host 0.0.0.0 --port 8080
+    python run_api.py --host 0.0.0.0 --port 8082
     
     # Or via uvicorn directly:
     uvicorn src.api.app:app --reload
