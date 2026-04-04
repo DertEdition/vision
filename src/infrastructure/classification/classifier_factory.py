@@ -36,6 +36,7 @@ class ClassifierFactory:
         model_path: Optional[str] = None,
         device: str = "cuda",
         confidence_threshold: float = 0.5,
+        abnormality_threshold: Optional[float] = None,
         image_size: int = 224,
         **kwargs
     ) -> ImageClassifierPort:
@@ -47,6 +48,7 @@ class ClassifierFactory:
             model_path: Path to trained model weights
             device: Computation device (cuda/cpu)
             confidence_threshold: Minimum confidence for predictions
+            abnormality_threshold: Optional higher threshold for abnormality decision
             image_size: Input image size
             
         Returns:
@@ -58,19 +60,22 @@ class ClassifierFactory:
         if classifier_type == ClassifierType.DERMATOLOGY:
             from .dermatology_classifier import DermatologyClassifier
             return DermatologyClassifier(
-                model_path=model_path or "./models/dermatology_model.pth",
+                model_path=model_path or "models/dermatology_model.pth",
                 device=device,
                 confidence_threshold=confidence_threshold,
                 image_size=image_size,
+                **kwargs,
             )
         
         elif classifier_type == ClassifierType.CHEST_XRAY:
             from .chest_xray_classifier import ChestXrayClassifier
             return ChestXrayClassifier(
-                model_path=model_path or "./models/chest_xray_model.pth",
+                model_path=model_path or "models/chest_xray_model.pth",
                 device=device,
                 confidence_threshold=confidence_threshold,
+                abnormality_threshold=abnormality_threshold,
                 image_size=image_size,
+                **kwargs,
             )
         
         else:

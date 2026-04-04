@@ -58,3 +58,9 @@ Thumbs.db
 htmlcov/
 .tox/
 scripts/ilacabak.txt
+
+# Keep only canonical best model checkpoints in Git.
+models/*.pth
+!models/chest_xray_model.pth
+!models/dermatology_model.pth
+models/backup_promote_best_*/

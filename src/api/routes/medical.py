@@ -6,6 +6,7 @@ REST API endpoints for medical image analysis (dermatology + chest X-ray).
 
 import logging
 import time
+import hashlib
 from typing import Optional
 
 from fastapi import APIRouter, UploadFile, File, Depends, HTTPException
@@ -17,6 +18,7 @@ from ...application.services.medical_analysis_service import MedicalAnalysisServ
 from ...domain.entities.medical_diagnosis import MedicalDiagnosisResult
 
 logger = logging.getLogger(__name__)
+uvicorn_logger = logging.getLogger("uvicorn.error")
 
 router = APIRouter(prefix="/analyze/medical", tags=["Medical Diagnosis"])
 
@@ -86,6 +88,13 @@ async def analyze_dermatology_upload(
         image_bytes = await file.read()
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Failed to read uploaded file: {e}")
+
+    uvicorn_logger.info(
+        "Derm upload received: filename=%s, bytes=%d, sha1=%s",
+        file.filename,
+        len(image_bytes),
+        hashlib.sha1(image_bytes).hexdigest()[:12],
+    )
     
     # Determine format
     format = "jpeg"
@@ -95,6 +104,17 @@ async def analyze_dermatology_upload(
     
     result = service.analyze_dermatology(image_bytes, format=format)
     processing_time = (time.time() - start) * 1000
+
+    if result.dermatology:
+        uvicorn_logger.info(
+            "Derm result: req=%s mal=%s(%.4f) disease=%s(%.4f) took=%.1fms",
+            result.request_id,
+            result.dermatology.malignancy,
+            result.dermatology.malignancy_confidence,
+            result.dermatology.disease_type,
+            result.dermatology.disease_type_confidence,
+            processing_time,
+        )
     
     return _build_response(result, processing_time)
 
@@ -150,6 +170,13 @@ async def analyze_chest_xray_upload(
         image_bytes = await file.read()
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Failed to read uploaded file: {e}")
+
+    uvicorn_logger.info(
+        "Xray upload received: filename=%s, bytes=%d, sha1=%s",
+        file.filename,
+        len(image_bytes),
+        hashlib.sha1(image_bytes).hexdigest()[:12],
+    )
     
     format = "jpeg"
     if file.filename:
@@ -158,6 +185,15 @@ async def analyze_chest_xray_upload(
     
     result = service.analyze_chest_xray(image_bytes, format=format)
     processing_time = (time.time() - start) * 1000
+
+    if result.chest_xray:
+        uvicorn_logger.info(
+            "Xray result: req=%s primary=%s abnormal=%s took=%.1fms",
+            result.request_id,
+            result.chest_xray.primary_finding,
+            result.chest_xray.has_abnormality,
+            processing_time,
+        )
     
     return _build_response(result, processing_time)
 

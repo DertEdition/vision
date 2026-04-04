@@ -96,6 +96,16 @@ a substitute for professional medical advice.
     app.include_router(health_router)
     app.include_router(analysis_router)
     app.include_router(medical_router)
+
+    @app.middleware("http")
+    async def disable_static_cache(request, call_next):
+        """Avoid stale test UI assets during active debugging."""
+        response = await call_next(request)
+        if request.url.path.startswith("/static/"):
+            response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+            response.headers["Pragma"] = "no-cache"
+            response.headers["Expires"] = "0"
+        return response
     
     # Mount static files for test UI
     static_dir = Path(__file__).resolve().parent.parent.parent / "static"
@@ -105,7 +115,9 @@ a substitute for professional medical advice.
         @app.get("/", include_in_schema=False)
         async def root_redirect():
             """Redirect root to test UI."""
-            return RedirectResponse(url="/static/test_ui.html")
+            ui_file = static_dir / "test_ui.html"
+            version = int(ui_file.stat().st_mtime) if ui_file.exists() else 0
+            return RedirectResponse(url=f"/static/test_ui.html?v={version}")
     
     logger.info("FastAPI application created successfully")
     

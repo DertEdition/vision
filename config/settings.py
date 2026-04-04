@@ -113,7 +113,7 @@ class DermatologyConfig:
     Settings for the CNN-based skin lesion classifier.
     """
     
-    model_path: str = "./models/dermatology_model.pth"
+    model_path: str = "models/dermatology_model.pth"
     device: str = "cuda"
     confidence_threshold: float = 0.5
     image_size: int = 224
@@ -128,9 +128,17 @@ class ChestXrayConfig:
     Settings for the CNN-based chest X-ray disease classifier.
     """
     
-    model_path: str = "./models/chest_xray_model.pth"
+    model_path: str = "models/chest_xray_model.pth"
     device: str = "cuda"
     confidence_threshold: float = 0.5
+    abnormality_threshold: float = 0.65
+    force_grayscale: bool = True
+    laplacian_ksize: int = 3
+    sobel_ksize: int = 3
+    lowpass_sigma: float = 1.2
+    detail_gain: float = 1.0
+    gamma: float = 0.5
+    gamma_c: float = 1.0
     image_size: int = 224
     enabled: bool = True
 
@@ -213,6 +221,46 @@ class AppConfig:
             config.chest_xray.model_path = xray_model
         if xray_device := os.getenv("DRUG_PIPELINE_XRAY_DEVICE"):
             config.chest_xray.device = xray_device
+        if xray_thr := os.getenv("DRUG_PIPELINE_XRAY_CONFIDENCE_THRESHOLD"):
+            try:
+                config.chest_xray.confidence_threshold = float(xray_thr)
+            except ValueError:
+                pass
+        if xray_abn_thr := os.getenv("DRUG_PIPELINE_XRAY_ABNORMALITY_THRESHOLD"):
+            try:
+                config.chest_xray.abnormality_threshold = float(xray_abn_thr)
+            except ValueError:
+                pass
+        if xray_lap_k := os.getenv("DRUG_PIPELINE_XRAY_LAPLACIAN_KSIZE"):
+            try:
+                config.chest_xray.laplacian_ksize = int(xray_lap_k)
+            except ValueError:
+                pass
+        if xray_sobel_k := os.getenv("DRUG_PIPELINE_XRAY_SOBEL_KSIZE"):
+            try:
+                config.chest_xray.sobel_ksize = int(xray_sobel_k)
+            except ValueError:
+                pass
+        if xray_lowpass_sigma := os.getenv("DRUG_PIPELINE_XRAY_LOWPASS_SIGMA"):
+            try:
+                config.chest_xray.lowpass_sigma = float(xray_lowpass_sigma)
+            except ValueError:
+                pass
+        if xray_detail_gain := os.getenv("DRUG_PIPELINE_XRAY_DETAIL_GAIN"):
+            try:
+                config.chest_xray.detail_gain = float(xray_detail_gain)
+            except ValueError:
+                pass
+        if xray_gamma := os.getenv("DRUG_PIPELINE_XRAY_GAMMA"):
+            try:
+                config.chest_xray.gamma = float(xray_gamma)
+            except ValueError:
+                pass
+        if xray_gamma_c := os.getenv("DRUG_PIPELINE_XRAY_GAMMA_C"):
+            try:
+                config.chest_xray.gamma_c = float(xray_gamma_c)
+            except ValueError:
+                pass
         
         return config
     
@@ -324,6 +372,14 @@ class AppConfig:
                 "model_path": self.chest_xray.model_path,
                 "device": self.chest_xray.device,
                 "confidence_threshold": self.chest_xray.confidence_threshold,
+                "abnormality_threshold": self.chest_xray.abnormality_threshold,
+                "force_grayscale": self.chest_xray.force_grayscale,
+                "laplacian_ksize": self.chest_xray.laplacian_ksize,
+                "sobel_ksize": self.chest_xray.sobel_ksize,
+                "lowpass_sigma": self.chest_xray.lowpass_sigma,
+                "detail_gain": self.chest_xray.detail_gain,
+                "gamma": self.chest_xray.gamma,
+                "gamma_c": self.chest_xray.gamma_c,
                 "image_size": self.chest_xray.image_size,
                 "enabled": self.chest_xray.enabled,
             },

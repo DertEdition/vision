@@ -176,6 +176,14 @@ def _create_medical_pipelines(config):
                 model_path=config.chest_xray.model_path,
                 device=config.chest_xray.device,
                 confidence_threshold=config.chest_xray.confidence_threshold,
+                abnormality_threshold=config.chest_xray.abnormality_threshold,
+                force_grayscale=config.chest_xray.force_grayscale,
+                laplacian_ksize=config.chest_xray.laplacian_ksize,
+                sobel_ksize=config.chest_xray.sobel_ksize,
+                lowpass_sigma=config.chest_xray.lowpass_sigma,
+                detail_gain=config.chest_xray.detail_gain,
+                gamma=config.chest_xray.gamma,
+                gamma_c=config.chest_xray.gamma_c,
                 image_size=config.chest_xray.image_size,
             )
             chest_pipeline = MedicalPipelineBuilder()\

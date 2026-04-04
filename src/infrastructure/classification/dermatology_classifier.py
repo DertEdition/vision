@@ -15,6 +15,8 @@ from ...domain.ports.image_classifier import ImageClassifierPort
 from ...domain.value_objects.image_data import ImageData
 
 logger = logging.getLogger(__name__)
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
+DEFAULT_DERMATOLOGY_MODEL_PATH = PROJECT_ROOT / "models" / "dermatology_model.pth"
 
 
 # DERM12345 disease sub-class labels (alphabetically sorted)
@@ -47,7 +49,7 @@ class DermatologyClassifier(ImageClassifierPort):
     
     def __init__(
         self,
-        model_path: str = "./models/dermatology_model.pth",
+        model_path: Optional[str] = None,
         device: str = "cuda",
         confidence_threshold: float = 0.5,
         image_size: int = 224,
@@ -61,7 +63,7 @@ class DermatologyClassifier(ImageClassifierPort):
             confidence_threshold: Minimum confidence for predictions
             image_size: Input image size for the model
         """
-        self._model_path = model_path
+        self._model_path = self._resolve_model_path(model_path)
         self._device = device
         self._confidence_threshold = confidence_threshold
         self._image_size = image_size
@@ -70,20 +72,43 @@ class DermatologyClassifier(ImageClassifierPort):
         self._disease_classes = DERM_DISEASE_CLASSES
         
         self._load_model()
+
+    @staticmethod
+    def _resolve_model_path(model_path: Optional[str]) -> Path:
+        """
+        Resolve model path for robust startup.
+
+        Priority:
+        1) Explicit absolute path
+        2) Explicit relative path from current working directory (if exists)
+        3) Explicit relative path from project root
+        4) Default canonical path: models/dermatology_model.pth under project root
+        """
+        if not model_path:
+            return DEFAULT_DERMATOLOGY_MODEL_PATH
+
+        candidate = Path(model_path).expanduser()
+        if candidate.is_absolute():
+            return candidate
+
+        cwd_candidate = (Path.cwd() / candidate).resolve()
+        if cwd_candidate.exists():
+            return cwd_candidate
+
+        return (PROJECT_ROOT / candidate).resolve()
     
     def _load_model(self) -> None:
         """Load the trained model from disk."""
         import torch
-        import torchvision.models as models
         
-        model_file = Path(self._model_path)
+        model_file = self._model_path
         if not model_file.exists():
             logger.warning(
                 f"Dermatology model not found at {self._model_path}. "
                 "Classifier will use random weights. Train the model first."
             )
             # Create model with random weights for structure validation
-            self._model = self._create_model_architecture()
+            self._model = self._create_model_architecture(use_hidden_heads=True)
             self._model.eval()
             return
         
@@ -93,7 +118,7 @@ class DermatologyClassifier(ImageClassifierPort):
                 else "cpu"
             )
             
-            checkpoint = torch.load(self._model_path, map_location=device, weights_only=False)
+            checkpoint = torch.load(model_file, map_location=device, weights_only=False)
             
             # Update class lists from checkpoint if available
             if "malignancy_classes" in checkpoint:
@@ -101,36 +126,80 @@ class DermatologyClassifier(ImageClassifierPort):
             if "disease_classes" in checkpoint:
                 self._disease_classes = checkpoint["disease_classes"]
             
-            self._model = self._create_model_architecture()
-            self._model.load_state_dict(checkpoint["model_state_dict"])
+            state_dict = checkpoint["model_state_dict"]
+            detected_hidden_heads = self._checkpoint_uses_hidden_heads(state_dict)
+
+            load_error = None
+            use_hidden_heads = detected_hidden_heads
+            for candidate in (detected_hidden_heads, not detected_hidden_heads):
+                try:
+                    model_candidate = self._create_model_architecture(use_hidden_heads=candidate)
+                    model_candidate.load_state_dict(state_dict)
+                    self._model = model_candidate
+                    use_hidden_heads = candidate
+                    load_error = None
+                    break
+                except Exception as e:
+                    load_error = e
+
+            if load_error is not None:
+                raise load_error
+
             self._model.to(device)
             self._model.eval()
             
             logger.info(
                 f"Dermatology model loaded from {self._model_path} "
                 f"({len(self._malignancy_classes)} malignancy classes, "
-                f"{len(self._disease_classes)} disease classes)"
+                f"{len(self._disease_classes)} disease classes, "
+                f"hidden_heads={use_hidden_heads}, detected_hidden_heads={detected_hidden_heads})"
             )
         except Exception as e:
             logger.error(f"Failed to load dermatology model: {e}")
-            self._model = self._create_model_architecture()
+            self._model = self._create_model_architecture(use_hidden_heads=True)
             self._model.eval()
     
-    def _create_model_architecture(self):
+    @staticmethod
+    def _checkpoint_uses_hidden_heads(state_dict: Dict[str, Any]) -> bool:
+        """Detect whether checkpoint uses the newer hidden-layer dual heads."""
+        for key in state_dict.keys():
+            if key.endswith("malignancy_head.1.weight") or key.endswith("disease_head.1.weight"):
+                return True
+        return False
+
+    def _create_model_architecture(self, use_hidden_heads: bool = True):
         """Create the model architecture (ResNet18 with dual classification heads)."""
         import torch
         import torch.nn as nn
         import torchvision.models as models
         
         class DermatologyNet(nn.Module):
-            def __init__(self, num_malignancy_classes, num_disease_classes):
+            def __init__(self, num_malignancy_classes, num_disease_classes, use_hidden_heads):
                 super().__init__()
                 self.backbone = models.resnet18(weights=None)
                 num_features = self.backbone.fc.in_features
                 self.backbone.fc = nn.Identity()
-                
-                self.malignancy_head = nn.Linear(num_features, num_malignancy_classes)
-                self.disease_head = nn.Linear(num_features, num_disease_classes)
+
+                if use_hidden_heads:
+                    # Matches train_dermatology_model.py architecture.
+                    self.malignancy_head = nn.Sequential(
+                        nn.Dropout(0.3),
+                        nn.Linear(num_features, 128),
+                        nn.ReLU(),
+                        nn.Dropout(0.2),
+                        nn.Linear(128, num_malignancy_classes),
+                    )
+                    self.disease_head = nn.Sequential(
+                        nn.Dropout(0.3),
+                        nn.Linear(num_features, 256),
+                        nn.ReLU(),
+                        nn.Dropout(0.2),
+                        nn.Linear(256, num_disease_classes),
+                    )
+                else:
+                    # Backward compatibility with older checkpoints.
+                    self.malignancy_head = nn.Linear(num_features, num_malignancy_classes)
+                    self.disease_head = nn.Linear(num_features, num_disease_classes)
             
             def forward(self, x):
                 features = self.backbone(x)
@@ -140,7 +209,8 @@ class DermatologyClassifier(ImageClassifierPort):
         
         return DermatologyNet(
             num_malignancy_classes=len(self._malignancy_classes),
-            num_disease_classes=len(self._disease_classes)
+            num_disease_classes=len(self._disease_classes),
+            use_hidden_heads=use_hidden_heads,
         )
     
     def classify(
